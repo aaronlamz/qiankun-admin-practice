@@ -4,11 +4,11 @@
 ## 快速上手
 
 ## 入门指南
-* 写在前面
-* 构建主应用基座
-* 接入微应用
-  * 接入Vue微应用
-  * 接入React微应用
+* [写在前面](#preface)
+* [构建主应用基座](#main)
+* [接入微应用](#subapp)
+  * [接入Vue微应用](#subapp-vue)
+  * [接入React微应用](#subapp-react)
 * 父子应用间通信
 * 公共代码复用
 * keepAlive方案
