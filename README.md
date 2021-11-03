@@ -9,13 +9,12 @@
 * [接入微应用](#subapp)
   * [接入Vue微应用](#subapp-vue)
   * [接入React微应用](#subapp-react)
-* 父子应用间通信
-* 公共代码复用
-* keepAlive方案
-* 部署上线
-* 性能优化
-* 常见问题
-
+* [父子应用间通信](#state)
+* [公共代码复用](#common)
+* [keepAlive方案](#keepalive)
+* [部署上线](#deploy)
+* [性能优化](#performance)
+* [常见问题](#qa)
 ## 源码分析
 // TODO
 ## License
