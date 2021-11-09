@@ -1,0 +1,59 @@
+html {
+	overflow: hidden;
+	-webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',SimSun,sans-serif;
+  	font-weight: 400;
+  	-webkit-font-smoothing: antialiased;
+  	-webkit-tap-highlight-color: transparent;
+	padding: 0;
+	margin: 0;
+}
+a:focus,
+a:active,
+button,
+div,
+span {
+	outline: none !important;
+}
+
+::-webkit-scrollbar {
+	width: 7px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.6);
+	background-color: rgba(144, 147, 153, 0.3);
+	border-radius: 2px;
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+}
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	  -webkit-user-select: none; /* Safari */
+	   -khtml-user-select: none; /* Konqueror HTML */
+		 -moz-user-select: none; /* Old versions of Firefox */
+		  -ms-user-select: none; /* Internet Explorer/Edge */
+			  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+  }
+  
+#app{
+	width: 100%;
+	height: 100%;
+}
+
+
+.el-message-box__wrapper{
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
