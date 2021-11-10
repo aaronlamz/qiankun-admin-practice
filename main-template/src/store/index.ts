@@ -2,7 +2,6 @@ import { createStore } from 'vuex'
 import type { App } from 'vue'
 import app from './modules/app'
 import tab from './modules/tab'
-import login from './modules/login'
 
 const store = createStore({
     state: {},
@@ -11,7 +10,6 @@ const store = createStore({
     modules: {
         app,
         tab,
-        login,
     },
 })
 
