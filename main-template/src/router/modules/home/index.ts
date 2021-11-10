@@ -33,7 +33,7 @@ const routes: Array<RouteRecordRaw> = [
                 component: Framework,
             },
         ],
-    }
+    },
 ]
 
 export default routes

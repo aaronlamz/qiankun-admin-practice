@@ -4,7 +4,6 @@ div(:class="[prefixCls]")
         ElBreadcrumbItem(v-for="item in routes" :key="item.path") {{item.meta.title}}
 </template>
 <script lang="ts">
-// import type { RouteLocationMatched } from 'vue-router'
 import { defineComponent, toRaw, ref, watchEffect } from 'vue'
 import { ElBreadcrumb, ElBreadcrumbItem } from 'element-plus'
 import { useRouter } from 'vue-router'
