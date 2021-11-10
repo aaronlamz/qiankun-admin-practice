@@ -34,13 +34,14 @@ qiankun 是一个基于 single-spa 的微前端实现库，旨在帮助大家能
 - 🧳 JS 沙箱，确保微应用之间 全局变量/事件 不冲突。
 - ⚡️ 资源预加载，在浏览器空闲时间预加载未打开的微应用资源，加速微应用打开速度。
 - 🔌 umi 插件，提供了 [@umijs/plugin-qiankun](https://github.com/umijs/plugins/tree/master/packages/plugin-qiankun) 供 umi 应用一键切换成微前端架构系统
-#### <span id="1-4">[为什么不是iframe](https://www.yuque.com/kuitos/gky7yw/gesexv)</span>
+#### <span id="1-4">为什么不是iframe</span>
 如果不考虑体验问题，iframe 几乎是最完美的微前端解决方案了。
 iframe 最大的特性就是提供了浏览器原生的硬隔离方案，不论是样式隔离、js 隔离这类问题统统都能被完美解决。但他的最大问题也在于他的隔离性无法被突破，导致应用间上下文无法被共享，随之带来的开发体验、产品体验的问题。
 * URL 不同步。浏览器刷新 iframe url 状态丢失、后退前进按钮无法使用。
 * UI 不同步，DOM 结构不共享。想象一下屏幕右下角 1/4 的 iframe 里来一个带遮罩层的弹框，同时我们要求这个弹框要浏览器居中显示，还要浏览器 resize 时自动居中。
 * 全局上下文完全隔离，内存变量不共享。iframe 内外系统的通信、数据同步等需求，主应用的 cookie 要透传到根域名都不同的子应用中实现免登效果。
 * 慢。每次子应用进入都是一次浏览器上下文重建、资源重新加载的过程。
+
 ## 源码分析
 // TODO
 
