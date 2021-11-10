@@ -25,9 +25,9 @@ qiankun 是一个基于 single-spa 的微前端实现库，旨在帮助大家能
 ## 源码分析
 // TODO
 
-## 更多介绍
-[官方文档](https://qiankun.umijs.org/zh/guide)
-[single-spa](https://github.com/single-spa/single-spa)
+## 参考链接
+- [官方文档](https://qiankun.umijs.org/zh/guide)
+- [single-spa](https://github.com/single-spa/single-spa)
 ## License
 [MIT](./LICENSE)
 
