@@ -11,7 +11,7 @@
   - [特性](#1-3)
   - [为什么不是iframe](#1-4)
 - [后台管理系统微前端实践](#2)
-  - [选择微应用路由模式](.guide/2-0.md)
+  - [选择微应用路由模式](./guide/2-0.md)
   - [构建主应用基座](./guide/2-1.md)
   - [接入Vue微应用](./guide/2-2.md)
   - [接入React微应用](./guide/2-3.md)
@@ -32,7 +32,7 @@ qiankun 是一个基于 single-spa 的微前端实现库，旨在帮助大家能
 - 📱 技术栈无关，任意技术栈的应用均可 使用/接入，不论是 React/Vue/Angular/JQuery 还是其他等框架。
 - 💪 HTML Entry 接入方式，让你接入微应用像使用 iframe 一样简单。
 - 🛡​ 样式隔离，确保微应用之间样式互相不干扰。
-- 🧳 JS 沙箱，确保微应用之间 全局变量/事件 不冲突。
+- 🧳 JS 沙箱，确保微应用之间全局变量/事件不冲突。
 - ⚡️ 资源预加载，在浏览器空闲时间预加载未打开的微应用资源，加速微应用打开速度。
 - 🔌 umi 插件，提供了 [@umijs/plugin-qiankun](https://github.com/umijs/plugins/tree/master/packages/plugin-qiankun) 供 umi 应用一键切换成微前端架构系统
 #### <span id="1-4">为什么不是iframe</span>
