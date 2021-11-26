@@ -4,7 +4,6 @@ import { API_BASE_URL } from '@/utils/env/DOMAIN'
 import type { MenuRouteItem } from '@/layouts/default/Menu/types'
 import LS from '@/utils/local-storage'
 import store from '@/store'
-import router from '@/router'
 
 interface AppType {
     name: string
@@ -13,8 +12,6 @@ interface AppType {
     activeRule: any
     props: {
         store: any
-        router?: any
-        BaseRequest?: any
     }
 }
 
@@ -29,7 +26,6 @@ const apps: Array<AppType> = [
         activeRule: getActiveRule('#/subapp-tempalte-vue2'),
         props: {
             store,
-            router,
         },
     },
 ]
@@ -45,7 +41,6 @@ const initMicroState = () => {
     onGlobalStateChange((value: any) => {
         const cachedRoutes = LS.get('CACHED_ROUTES') || []
         const toCacheRoutes: Array<MenuRouteItem> = []
-        // cached subapp routes
         if (value && value.routes.length) {
             const subappRoute = value.routes.find(
                 (item: MenuRouteItem) => item.children && item.children.length

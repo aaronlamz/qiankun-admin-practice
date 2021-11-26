@@ -30,8 +30,8 @@ export default defineComponent({
 </script>
 <style lang="scss">
 $header-prefix-cls: '#{$namespace}-layout-header';
-$header-left-prefix-cls: '#{$namespace}-layout-header-left';
-$header-prefix-cls-action: '#{$header-prefix-cls}-action';
+$header-prefix-left: '#{$header-prefix-cls}-left';
+$header-prefix-action: '#{$header-prefix-cls}-action';
 .#{$header-prefix-cls} {
     display: flex;
     height: $header-height;
@@ -42,25 +42,18 @@ $header-prefix-cls-action: '#{$header-prefix-cls}-action';
     align-items: center;
     justify-content: space-between;
 
-    .#{$header-left-prefix-cls} {
+    .#{$header-prefix-left} {
         display: flex;
         min-width: 250px;
     }
 }
-.#{$header-prefix-cls-action} {
+.#{$header-prefix-action} {
     display: flex;
     min-width: 750px;
+    justify-content: flex-end;
     span {
         font-size: 14px;
         padding: 0 5px;
-    }
-}
-.locale-item {
-    color: #ccc;
-    cursor: pointer;
-    &.actived {
-        color: #0960bd;
-        font-weight: bold;
     }
 }
 </style>

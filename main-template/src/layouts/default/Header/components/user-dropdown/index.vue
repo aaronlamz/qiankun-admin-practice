@@ -1,6 +1,6 @@
 <template lang="pug">
 .block-el-dropdown
-    span.block-user {{ getUserInfo.realName }}
+    span.block-user UserName
     ElDropdown(:class="[prefixCls]")
         span.el-dropdown-link
             i(class="el-icon-arrow-down el-icon--right")
@@ -13,11 +13,9 @@
 </template>
 <script lang="ts">
 import { ElDropdown, ElDropdownMenu, ElDropdownItem } from 'element-plus'
-import { defineComponent, computed } from 'vue'
+import { defineComponent } from 'vue'
 import headerImg from '@/assets/images/avatar.jpg'
 import { useNamespace } from '@/hooks/web/useNamespace'
-import { useStore } from 'vuex'
-import router from '@/router/index'
 
 export default defineComponent({
     name: 'UserDropdown',
@@ -29,35 +27,22 @@ export default defineComponent({
     props: {},
     setup() {
         const { prefixCls } = useNamespace('header-user-dropdown')
-        const store = useStore()
-        const getUserInfo = computed(() => {
-            return { realName: store.getters.getUserInfo.nickName }
-        })
 
-        function handleLogOut() {
-            store.dispatch('logoutAction')
-        }
-        function handleModifyPwd() {
-            router.push({
-                path: `/subapp-admin/modify-pwd`,
-            })
-        }
         function handleMenuClick(key) {
             switch (key) {
                 case 'logout':
-                    handleLogOut()
+                    alert('logout')
                     break
                 case 'modifyPwd':
-                    handleModifyPwd()
+                    alert('modifyPwd')
                     break
             }
         }
 
         return {
             prefixCls,
-            getUserInfo,
-            handleMenuClick,
             headerImg,
+            handleMenuClick,
         }
     },
 })
