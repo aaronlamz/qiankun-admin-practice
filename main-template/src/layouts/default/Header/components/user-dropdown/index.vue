@@ -14,7 +14,6 @@
 <script lang="ts">
 import { ElDropdown, ElDropdownMenu, ElDropdownItem } from 'element-plus'
 import { defineComponent } from 'vue'
-import headerImg from '@/assets/images/avatar.jpg'
 import { useNamespace } from '@/hooks/web/useNamespace'
 
 export default defineComponent({
@@ -41,7 +40,6 @@ export default defineComponent({
 
         return {
             prefixCls,
-            headerImg,
             handleMenuClick,
         }
     },
