@@ -39,6 +39,26 @@ const store = createStore({
                                 parentId: '4',
                                 menuName: 'MENU-3-1',
                                 url: '/subapp-template-vue2/menu-3-1',
+                                menuList: [
+                                    {
+                                        id: '7',
+                                        parentId: '5',
+                                        menuName: 'MENU-3-1-1',
+                                        url: '/subapp-template-vue2/menu-3-1-1',
+                                    },
+                                    {
+                                        id: '8',
+                                        parentId: '5',
+                                        menuName: 'MENU-3-1-2',
+                                        url: '/subapp-template-vue2/menu-3-1-2',
+                                    },
+                                ],
+                            },
+                            {
+                                id: '6',
+                                parentId: '4',
+                                menuName: 'MENU-3-2',
+                                url: '/subapp-template-vue2/menu-3-2',
                             },
                         ],
                     },
