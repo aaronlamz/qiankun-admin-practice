@@ -28,7 +28,7 @@ export const useFormatMenuListToRoutes = () => {
 export const useGetIdByPath = () => {
     let id = ''
     function getId(menuList: Array<MenuRouteItem>, path: string) {
-        if (path && menuList.length) {
+        if (path && menuList && menuList.length) {
             menuList.forEach((item) => {
                 if (item.path === path) {
                     id = item.id || ''
@@ -75,9 +75,8 @@ export const useFormatMenuList = (menuList: Array<MenuSelectVoItem>) => {
                 title: item.menuName,
                 icon: item.menuIcon,
             }
-            if (item.menuSelectVoList) {
-                menuItem.children =
-                    useFormatMenuList(item.menuSelectVoList) || []
+            if (item.menuList) {
+                menuItem.children = useFormatMenuList(item.menuList) || []
             }
             routes.push(menuItem)
         })

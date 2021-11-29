@@ -23,7 +23,6 @@ export default defineComponent({
         })
 
         return {
-            prefixCls,
             getSiderClass,
             getSiderWidth,
         }

@@ -1,6 +1,5 @@
 <template lang="pug">
 AppLogo
-SearchMenu
 ElScrollbar(
     :class="getScrollbarClass"
     )
@@ -26,14 +25,9 @@ import { useNamespace } from '@/hooks/web/useNamespace'
 import { useGoPage } from '@/hooks/web/usePage'
 import BasicSidebarItem from './components/BasicSidebarItem.vue'
 import AppLogo from './components/AppLogo.vue'
-import SearchMenu from './components/SearchMenu.vue'
 import { useStore } from 'vuex'
 import { useRoute } from 'vue-router'
-import {
-    useFormatMenuListToRoutes,
-    useGetIdByPath,
-    useCacheRoutes,
-} from './useMenu'
+import { useGetIdByPath } from './useMenu'
 
 export default defineComponent({
     name: 'LayoutMenu',
@@ -41,12 +35,10 @@ export default defineComponent({
         ElScrollbar,
         BasicSidebarItem,
         AppLogo,
-        SearchMenu,
     },
     async setup() {
         const go = useGoPage()
         const getId = useGetIdByPath()
-        const formatToRoutes = useFormatMenuListToRoutes()
         const route = useRoute()
         const store = useStore()
         const openeds = reactive(['1'])
@@ -64,27 +56,20 @@ export default defineComponent({
                 activeId.value = getId(menuList, route.path)
             }
         )
-        store.getters.getFormatMenuList.length === 0 &&
-            (await store.dispatch('loginTicketAction'))
-        const menuList = store.getters.getFormatMenuList
-        const getMenuItems = computed(() =>
-            reactive(store.getters.getFormatMenuList)
-        )
-        const getMenuClass = computed(() => [prefixCls])
+
+        const menuList = store.getters.getMenuList
+        const getMenuItems = computed(() => reactive(menuList))
         const getScrollbarClass = computed(() => [`${prefixCls}-scrollbar`])
         const handleMenuClick = (path: string) => {
             go(path)
         }
-        const menuRoutes = formatToRoutes(menuList)
 
-        useCacheRoutes(menuRoutes)
         activeId.value = getId(menuList, route.path)
 
         return {
             openeds,
             activeId,
             prefixCls,
-            getMenuClass,
             getScrollbarClass,
             getMenuItems,
             handleMenuClick,

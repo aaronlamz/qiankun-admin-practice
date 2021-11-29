@@ -1,13 +1,8 @@
 <template lang="pug">
-//- el-tooltip(
-//-     class="item"
-//-     effect="dark"
-//-     :content="getMenuName"
-//-     placement="right")
 div
     span.noselect(
         :class="`${prefixCls}-wrapper`"
-        :title="getMenuName") 
+        :title="getMenuName")
         i(:class="`icon iconfont ${getMenuIcon}`") {{ getMenuName }}
 </template>
 <script lang="ts">
