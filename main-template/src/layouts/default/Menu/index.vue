@@ -95,7 +95,11 @@ $scrollbar-prefix-cls: '#{$namespace}-layout-menu-scrollbar';
     }
     .el-submenu {
         background-color: $sider-bg-color;
+        .el-menu {
+            background-color: $sider-menu-bg-color;
+        }
         .el-menu-item {
+            padding: 0 30px;
             background-color: $sider-menu-bg-color;
         }
     }
