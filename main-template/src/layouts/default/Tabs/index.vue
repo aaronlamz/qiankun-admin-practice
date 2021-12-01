@@ -25,7 +25,7 @@ import TabContent from './components/TabContent.vue'
 import { useNamespace } from '@/hooks/web/useNamespace'
 import { useGoPage } from '@/hooks/web/usePage'
 import store from '@/store/index'
-import { getTabTitlebyPath } from './useTabs'
+// import { getTabTitlebyPath } from './useTabs'
 
 export default defineComponent({
     name: 'MultipleTabs',
@@ -61,8 +61,7 @@ export default defineComponent({
             if (unref(unClose) && route.name && route.name !== 'Dashboard') {
                 store.dispatch('addTabAction', homeRoute)
             }
-            const getTabTitle = await getTabTitlebyPath(route.path)
-            route.meta.title = getTabTitle || route.meta.title
+            // route.meta.title = route.meta.title
             if (route.name) {
                 store.dispatch('addTabAction', route)
             }
@@ -74,8 +73,8 @@ export default defineComponent({
             () => route.path,
             async () => {
                 if (route.name && route.name !== 'Dashboard') {
-                    const getTabTitle = await getTabTitlebyPath(route.path)
-                    route.meta.title = getTabTitle || route.meta.title
+                    // const getTabTitle = await getTabTitlebyPath(route.path)
+                    // route.meta.title = getTabTitle || route.meta.title
                     store.dispatch('addTabAction', route)
                 }
                 activeTabRef.value = route.path

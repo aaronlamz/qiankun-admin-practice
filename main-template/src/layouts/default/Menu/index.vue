@@ -45,6 +45,14 @@ export default defineComponent({
         const activeId = ref('1')
         const { prefixCls } = useNamespace('layout-menu')
 
+        const menuList = store.getters.getMenuList
+        const getMenuItems = computed(() => reactive(menuList))
+        const getScrollbarClass = computed(() => [`${prefixCls}-scrollbar`])
+        const handleMenuClick = (path: string) => {
+            go(path)
+        }
+
+        activeId.value = getId(menuList, route.path)
         watch(
             () => route.path,
             () => {
@@ -56,16 +64,6 @@ export default defineComponent({
                 activeId.value = getId(menuList, route.path)
             }
         )
-
-        const menuList = store.getters.getMenuList
-        const getMenuItems = computed(() => reactive(menuList))
-        const getScrollbarClass = computed(() => [`${prefixCls}-scrollbar`])
-        const handleMenuClick = (path: string) => {
-            go(path)
-        }
-
-        activeId.value = getId(menuList, route.path)
-
         return {
             openeds,
             activeId,

@@ -9,7 +9,7 @@ import { ElBreadcrumb, ElBreadcrumbItem } from 'element-plus'
 import { useRouter } from 'vue-router'
 import { useNamespace } from '@/hooks/web/useNamespace'
 import { useGoPage } from '@/hooks/web/usePage'
-import { getTabTitlebyPath } from '@/layouts/default/Tabs/useTabs'
+// import { getTabTitlebyPath } from '@/layouts/default/Tabs/useTabs'
 
 export default defineComponent({
     name: 'LayoutBreadcrumb',
@@ -21,14 +21,14 @@ export default defineComponent({
         const { prefixCls } = useNamespace('layout-breadcrumb')
         watchEffect(async () => {
             const matched = currentRoute.value?.matched
-            const getRouteTitle = await getTabTitlebyPath(
-                currentRoute.value?.path
-            )
+            // const getRouteTitle = await getTabTitlebyPath(
+            //     currentRoute.value?.path
+            // )
             if (!matched || matched.length === 0) return
             let breadcrumbList = toRaw(matched)
             breadcrumbList.forEach((item) => {
                 if (item.name !== 'Home') {
-                    item.meta.title = getRouteTitle || item.meta.title
+                    // item.meta.title = getRouteTitle || item.meta.title
                 }
             })
             routes.value = breadcrumbList
