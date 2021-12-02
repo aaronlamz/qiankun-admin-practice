@@ -40,16 +40,15 @@ export default defineComponent({
         const route = useRoute()
         const go = useGoPage()
         const { prefixCls } = useNamespace('multiple-tabs')
+        const getWrapClass = computed(() => {
+            return [prefixCls]
+        })
         const getVisitedTabs = computed(() => {
             return (store.state as any).tab.visitedTabs
         })
         const unClose = computed(
             () => unref((store.state as any).tab.visitedTabs).length === 0
         )
-        const getWrapClass = computed(() => {
-            return [prefixCls]
-        })
-
         onMounted(async () => {
             const homeRoute = {
                 path: '/index',
@@ -69,7 +68,7 @@ export default defineComponent({
 
         watch(
             () => route.path,
-            async () => {
+            () => {
                 if (route.name && route.name !== 'Dashboard') {
                     store.dispatch('addTabAction', route)
                 }
@@ -84,7 +83,7 @@ export default defineComponent({
             go(path)
         }
 
-        // close Tab  callback
+        // close Tab callback
         async function handleRemoveTab(targetKey: string) {
             if (unref(unClose)) return
             await store.dispatch('closeTabByKeyAction', targetKey)
