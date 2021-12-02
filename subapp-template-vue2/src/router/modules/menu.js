@@ -12,10 +12,16 @@ const routes = [
         meta: { title: 'menu-2' }
     },
     {
-        name: 'menu-3-1',
-        path: '/menu-3-1',
+        name: 'menu-3-1-1',
+        path: '/menu-3-1-1',
         component: () => import('@/pages/menu/index.vue'),
-        meta: { title: 'menu-3-1' }
+        meta: { title: 'menu-3-1-1' }
+    },
+    {
+        name: 'menu-3-1-2',
+        path: '/menu-3-1-2',
+        component: () => import('@/pages/menu/index.vue'),
+        meta: { title: 'menu-3-1-2' }
     },
     {
         name: 'menu-3-2',
