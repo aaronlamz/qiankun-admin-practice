@@ -61,11 +61,9 @@ export default defineComponent({
             if (unref(unClose) && route.name && route.name !== 'Dashboard') {
                 store.dispatch('addTabAction', homeRoute)
             }
-            // route.meta.title = route.meta.title
             if (route.name) {
                 store.dispatch('addTabAction', route)
             }
-            // store.dispatch('addTabAction', route)
             activeTabRef.value = route.path
         })
 
@@ -73,8 +71,6 @@ export default defineComponent({
             () => route.path,
             async () => {
                 if (route.name && route.name !== 'Dashboard') {
-                    // const getTabTitle = await getTabTitlebyPath(route.path)
-                    // route.meta.title = getTabTitle || route.meta.title
                     store.dispatch('addTabAction', route)
                 }
                 activeTabRef.value = route.path

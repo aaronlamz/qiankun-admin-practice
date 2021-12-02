@@ -10,6 +10,7 @@ interface State {
 
 const store = createStore({
     state: {
+        // menuList data from service
         menuList: [
             {
                 id: '1',

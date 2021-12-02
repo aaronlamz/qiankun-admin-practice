@@ -1,6 +1,4 @@
 import { RouteLocationNormalized } from 'vue-router'
-import LS from '@/utils/local-storage'
-import { toRaw } from 'vue'
 
 interface State {
     visitedTabs: Array<RouteLocationNormalized>
@@ -36,7 +34,6 @@ export default {
             if (!route.meta.ignoreKeepAlive) {
                 state.cachedTabs.push(route.name)
             }
-            LS.put('cachedTabs', toRaw(state.cachedTabs))
         },
         commitCloseVisitedTab(state: State, route: RouteLocationNormalized) {
             for (const [i, v] of state.visitedTabs.entries()) {
@@ -54,7 +51,6 @@ export default {
                     break
                 }
             }
-            LS.put('cachedTabs', toRaw(state.cachedTabs))
         },
     },
     actions: {

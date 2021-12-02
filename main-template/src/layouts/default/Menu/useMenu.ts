@@ -1,4 +1,3 @@
-import LS from '@/utils/local-storage'
 import type { MenuRouteItem, MenuSelectVoItem } from './types'
 
 export const useFormatMenuListToRoutes = () => {
@@ -82,27 +81,4 @@ export const useFormatMenuList = (menuList: Array<MenuSelectVoItem>) => {
         })
     }
     return routes
-}
-
-export const useCacheRoutes = (routes: Array<MenuRouteItem>) => {
-    const cachedRoutes = LS.get('CACHED_ROUTES') || []
-    const tempAddRoutes = [] as any
-    routes.forEach((route) => {
-        if (route.path) {
-            const isCached = cachedRoutes.find(
-                (item: MenuRouteItem) => item.path === route.path
-            )
-            if (!isCached && route.path && route.meta && route.meta.title) {
-                tempAddRoutes.push({
-                    path: route.path,
-                    name: route.name,
-                    meta: {
-                        title: route.meta.title,
-                        icon: route.meta.icon,
-                    },
-                })
-            }
-        }
-    })
-    LS.put('CACHED_ROUTES', [...cachedRoutes, ...tempAddRoutes])
 }
