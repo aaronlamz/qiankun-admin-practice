@@ -17,7 +17,7 @@ export default {
             }
             state.visitedTabs.push(
                 Object.assign({}, route, {
-                    title: route.meta.title || 'no-name',
+                    title: route.meta.title || 'no-title',
                 })
             )
         },
