@@ -1,6 +1,7 @@
 <template lang="pug">
 div(:class="getLogoClass")
-    img(src="@/assets/images/usmart_logo.png")
+    div(:class="`${getLogoClass}__body`")
+        img(src="@/assets/images/element-plus-logo.svg")
 </template>
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
@@ -19,22 +20,19 @@ export default defineComponent({
 </script>
 <style lang="scss">
 $prefix-cls: '#{$namespace}-layout-menu-logo';
+$prefix-cls-body: '#{$namespace}-layout-menu-logo__body';
+
 .#{$prefix-cls} {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
     height: $header-height;
-    box-sizing: border-box;
-    padding: 10px 4px 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #26282a;
+}
+.#{$prefix-cls-body} {
     img {
-        width: 90%;
-        margin: 0 auto;
         display: block;
-    }
-    .title {
-        font-size: 16px;
-        color: $white;
-        padding-left: 10px;
+        height: 30px;
     }
 }
 </style>
