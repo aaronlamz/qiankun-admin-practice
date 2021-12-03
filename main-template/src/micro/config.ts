@@ -1,4 +1,4 @@
-import { registerMicroApps, initGlobalState } from 'qiankun'
+import { registerMicroApps, initGlobalState, prefetchApps } from 'qiankun'
 import store from '@/store'
 
 interface AppType {
@@ -44,5 +44,6 @@ const initMicroState = () => {
 
 export const initMicroApps: () => void = () => {
     registerMicroApps(apps)
+    prefetchApps(apps)
     initMicroState()
 }
