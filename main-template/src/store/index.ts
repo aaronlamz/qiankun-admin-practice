@@ -3,6 +3,7 @@ import type { App } from 'vue'
 import app from './modules/app'
 import tab from './modules/tab'
 import { useFormatMenuList } from '@/layouts/default/Menu/useMenu'
+import LS from '@/utils/localstorage'
 
 interface State {
     count: number
@@ -12,7 +13,7 @@ interface State {
 const store = createStore({
     state: {
         count: 0,
-        // menuList data from service
+        // fetch menuList data from service
         menuList: [
             {
                 id: '1',
@@ -81,6 +82,17 @@ const store = createStore({
     },
     getters: {
         getMenuList(state: State) {
+            // you can format data depend on menuList data
+            const servieRouteMap = {
+                '/subapp-template-vue2/menu-1': 'Vue2-MENU-1',
+                '/subapp-template-vue2/menu-2': 'Vue2-MENU-2',
+                '/subapp-template-vue2/menu-3': 'Vue2-MENU-3',
+                '/subapp-template-vue2/menu-3-1': 'Vue2-MENU-3-1',
+                '/subapp-template-vue2/menu-3-1-1': 'Vue2-MENU-3-1-1',
+                '/subapp-template-vue2/menu-3-1-2': 'Vue2-MENU-3-1-2',
+                '/subapp-template-vue2/menu-3-2': 'Vue2-MENU-3-2',
+            }
+            LS.put('CACHED_SERVICE_ROUTE_MAP', servieRouteMap)
             return useFormatMenuList(state.menuList)
         },
         getCount(state: State) {

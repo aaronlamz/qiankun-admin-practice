@@ -43,5 +43,4 @@ const setRoutesMicroAppPrefix = routes => {
     }
 }
 setRoutesMicroAppPrefix(routes)
-console.log(routes)
 export { routes }

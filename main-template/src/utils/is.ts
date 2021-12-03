@@ -40,14 +40,6 @@ export function isNull(val: unknown): val is null {
     return val === null
 }
 
-export function isNullAndUnDef(val: unknown): val is null | undefined {
-    return isUnDef(val) && isNull(val)
-}
-
-export function isNullOrUnDef(val: unknown): val is null | undefined {
-    return isUnDef(val) || isNull(val)
-}
-
 export function isNumber(val: unknown): val is number {
     return is(val, 'Number')
 }
