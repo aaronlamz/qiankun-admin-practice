@@ -15,7 +15,7 @@ export default defineComponent({
             start({
                 prefetch: 'all',
                 sandbox: {
-                    strictStyleIsolation: false, // 完全隔离Element组件报错、暂未解决 TODO:https://github.com/umijs/qiankun/issues/634
+                    strictStyleIsolation: false,
                     experimentalStyleIsolation: true,
                 },
             })
