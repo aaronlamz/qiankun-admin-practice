@@ -27,7 +27,7 @@ $prefix-cls-body: '#{$namespace}-layout-menu-logo__body';
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #26282a;
+    background: #343638;
 }
 .#{$prefix-cls-body} {
     img {
