@@ -10,6 +10,7 @@ let router = null
 let instance = null
 
 function render(props = {}) {
+    const data = props
     const { container } = props
     router = new VueRouter({
         routes
@@ -26,6 +27,11 @@ function render(props = {}) {
         instance = new Vue({
             router,
             store,
+            data() {
+                return {
+                    mainStore: data.store
+                }
+            },
             render: () => cachedNode
         })
 
@@ -43,6 +49,11 @@ function render(props = {}) {
         instance = new Vue({
             router,
             store,
+            data() {
+                return {
+                    mainStore: data.store
+                }
+            },
             render: h => h(App)
         }).$mount(container ? container.querySelector('#app') : '#app')
     }
@@ -53,36 +64,14 @@ if (!window.__POWERED_BY_QIANKUN__) {
 }
 
 export async function bootstrap() {
-    console.log('%c ', 'color: green;', 'vue app bootstraped')
-}
-
-function setupStore(props) {
-    props.onGlobalStateChange &&
-        props.onGlobalStateChange(
-            (value, prev) =>
-                console.log(
-                    `[onGlobalStateChange - ${props.name}]:`,
-                    value,
-                    prev
-                ),
-            true
-        )
-    props.setGlobalState &&
-        props.setGlobalState({
-            ignore: props.name,
-            user: {
-                name: props.name
-            },
-            routes
-        })
+    console.log('subapp bootstraped')
 }
 
 export async function mount(props) {
-    setupStore(props)
     render(props)
 }
 
 export async function unmount() {
-    console.log('vue app unmount')
+    console.log('subapp unmount')
     window[qiankunCachedKey] = instance.cachedInstance || instance
 }

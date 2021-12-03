@@ -3,6 +3,9 @@ ElHeader(:class="getHeaderClass" height="48px")
     div(:class="`${prefixCls}-left`")
         LayoutBreadcrumb
     div(:class="`${prefixCls}-action`")
+        div(style="padding-right:20px;")
+            span Main Page Store Count: {{$store.state.count}}
+            button(@click="addCount") AddCount
         UserDropDown
 </template>
 
@@ -12,6 +15,7 @@ import { ElHeader } from 'element-plus'
 import { useNamespace } from '@/hooks/web/useNamespace'
 import LayoutBreadcrumb from './components/Breadcrumb.vue'
 import UserDropDown from './components/user-dropdown/index.vue'
+import { useStore } from 'vuex'
 export default defineComponent({
     name: 'LayoutHeader',
     components: {
@@ -20,11 +24,15 @@ export default defineComponent({
         UserDropDown,
     },
     setup() {
+        const store = useStore()
         const { prefixCls } = useNamespace('layout-header')
         const getHeaderClass = computed(() => {
             return [prefixCls]
         })
-        return { prefixCls, getHeaderClass }
+        const addCount = () => {
+            store.commit('increment')
+        }
+        return { addCount, prefixCls, getHeaderClass }
     },
 })
 </script>
@@ -37,7 +45,6 @@ $header-prefix-action: '#{$header-prefix-cls}-action';
     height: $header-height;
     padding: 0;
     line-height: $header-height;
-    color: $white;
     background: $white;
     align-items: center;
     justify-content: space-between;

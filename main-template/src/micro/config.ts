@@ -28,7 +28,6 @@ const apps: Array<AppType> = [
 
 const initMicroState = () => {
     const { onGlobalStateChange, setGlobalState } = initGlobalState({
-        ignore: 'main',
         user: {
             name: 'main',
         },

@@ -5,11 +5,13 @@ import tab from './modules/tab'
 import { useFormatMenuList } from '@/layouts/default/Menu/useMenu'
 
 interface State {
+    count: number
     menuList: Array<any>
 }
 
 const store = createStore({
     state: {
+        count: 0,
         // menuList data from service
         menuList: [
             {
@@ -67,7 +69,11 @@ const store = createStore({
             },
         ],
     },
-    mutations: {},
+    mutations: {
+        increment(state) {
+            state.count++
+        },
+    },
     actions: {},
     modules: {
         app,
@@ -76,6 +82,9 @@ const store = createStore({
     getters: {
         getMenuList(state: State) {
             return useFormatMenuList(state.menuList)
+        },
+        getCount(state: State) {
+            return state.count
         },
     },
 })
