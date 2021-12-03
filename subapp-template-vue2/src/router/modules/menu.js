@@ -2,13 +2,13 @@ const routes = [
     {
         name: 'menu-1',
         path: '/menu-1',
-        component: () => import('@/pages/menu/index.vue'),
+        component: () => import('@/pages/menu-1/index.vue'),
         meta: { title: 'menu-1' }
     },
     {
         name: 'menu-2',
         path: '/menu-2',
-        component: () => import('@/pages/menu/index.vue'),
+        component: () => import('@/pages/menu-2/index.vue'),
         meta: { title: 'menu-2' }
     },
     {
