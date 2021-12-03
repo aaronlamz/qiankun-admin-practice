@@ -119,6 +119,7 @@ $prefix-cls: '#{$namespace}-multiple-tabs';
     box-shadow: 0 1px 2px 0 rgba(29, 35, 41, 0.05);
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
+    user-select: none;
 
     .el-tabs--card > .el-tabs__header {
         padding: 0;
