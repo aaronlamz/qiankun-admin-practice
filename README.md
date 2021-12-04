@@ -1,7 +1,7 @@
 # qiankun-admin-practice
 乾坤微前端｜后台管理系统实践指南
 ### 目录
-- [快速上手](#quickstart)
+- [快速上手](#quickStart)
 - [入门指南](#1)
   - [什么是微前端](#1-1)
   - [qiankun的设计理念](#1-2)
@@ -17,9 +17,9 @@
   - [keepAlive方案](./guide/2-6.md)
 - [部署上线](#3)
 - [性能优化](#4)
-- [深入理解qiankun](#deepinqiankun)
+- [深入理解qiankun](#deepinQiankun)
 
-## <span id="quickstart"> 快速上手</span>
+## <span id="quickStart"> 快速上手</span>
 ## <span id="1"> 入门指南</span>
 qiankun 是一个基于 single-spa 的微前端实现库，旨在帮助大家能更简单、无痛的构建一个生产可用微前端架构系统。
 ### <span id="1-1">什么是微前端</span>
@@ -43,7 +43,7 @@ iframe 最大的特性就是提供了浏览器原生的硬隔离方案，不论�
 * 全局上下文完全隔离，内存变量不共享。iframe 内外系统的通信、数据同步等需求，主应用的 cookie 要透传到根域名都不同的子应用中实现免登效果。
 * 慢。每次子应用进入都是一次浏览器上下文重建、资源重新加载的过程。
 
-## <span id="deepinqiankun">深入理解qiankun</span>
+## <span id="deepinQiankun">深入理解qiankun</span>
 
 ## 参考链接
 - [官方文档](https://qiankun.umijs.org/zh/guide)
