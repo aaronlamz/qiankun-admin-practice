@@ -32,6 +32,18 @@ const store = createStore({
                         menuName: 'Vue2-MENU-2',
                         url: '/subapp-template-vue2/menu-2',
                     },
+                    {
+                        id: '4',
+                        parentId: '1',
+                        menuName: 'Vue3-MENU-1',
+                        url: '/subapp-template-vue3/menu-1',
+                    },
+                    {
+                        id: '5',
+                        parentId: '1',
+                        menuName: 'Vue3-MENU-2',
+                        url: '/subapp-template-vue3/menu-2',
+                    },
                 ],
             },
         ],
@@ -52,11 +64,8 @@ const store = createStore({
             const servieRouteMap = {
                 '/subapp-template-vue2/menu-1': 'Vue2-MENU-1',
                 '/subapp-template-vue2/menu-2': 'Vue2-MENU-2',
-                '/subapp-template-vue2/menu-3': 'Vue2-MENU-3',
-                '/subapp-template-vue2/menu-3-1': 'Vue2-MENU-3-1',
-                '/subapp-template-vue2/menu-3-1-1': 'Vue2-MENU-3-1-1',
-                '/subapp-template-vue2/menu-3-1-2': 'Vue2-MENU-3-1-2',
-                '/subapp-template-vue2/menu-3-2': 'Vue2-MENU-3-2',
+                '/subapp-template-vue3/menu-1': 'Vue3-MENU-1',
+                '/subapp-template-vue3/menu-2': 'Vue3-MENU-2',
             }
             LS.put('CACHED_SERVICE_ROUTE_MAP', servieRouteMap)
             return useFormatMenuList(state.menuList)
