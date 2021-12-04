@@ -5,12 +5,12 @@ h1(style="padding:20px;text-align:center;") subapp {{$route.name}}
             span Parent Store Count:
             span(style="color:red;font-weight:blod;") {{parentCount}}
         p
-            span menu-1 page Count:
+            span {{$route.name}} page Count:
             span(style="color:red;font-weight:blod;") {{count}}
         p
             button(@click="addParentCount") AddParentCount
         p
-            button(@click="addCount") addCount
+            button(@click="addCount") AddPageCount
 </template>
 <script>
 export default {
