@@ -13,7 +13,7 @@ interface State {
 const store = createStore({
     state: {
         count: 0,
-        // fetch menuList data from service
+        // mock data: fetch menuList data from service
         menuList: [
             {
                 id: '1',
@@ -32,40 +32,6 @@ const store = createStore({
                         menuName: 'Vue2-MENU-2',
                         url: '/subapp-template-vue2/menu-2',
                     },
-                    // {
-                    //     id: '4',
-                    //     parentId: '1',
-                    //     menuName: 'Vue2-MENU-3',
-                    //     url: '/subapp-template-vue2/menu-3',
-                    //     menuList: [
-                    //         {
-                    //             id: '5',
-                    //             parentId: '4',
-                    //             menuName: 'Vue2-MENU-3-1',
-                    //             url: '/subapp-template-vue2/menu-3-1',
-                    //             menuList: [
-                    //                 {
-                    //                     id: '7',
-                    //                     parentId: '5',
-                    //                     menuName: 'Vue2-MENU-3-1-1',
-                    //                     url: '/subapp-template-vue2/menu-3-1-1',
-                    //                 },
-                    //                 {
-                    //                     id: '8',
-                    //                     parentId: '5',
-                    //                     menuName: 'Vue2-MENU-3-1-2',
-                    //                     url: '/subapp-template-vue2/menu-3-1-2',
-                    //                 },
-                    //             ],
-                    //         },
-                    //         {
-                    //             id: '6',
-                    //             parentId: '4',
-                    //             menuName: 'Vue2-MENU-3-2',
-                    //             url: '/subapp-template-vue2/menu-3-2',
-                    //         },
-                    //     ],
-                    // },
                 ],
             },
         ],
