@@ -1,8 +1,12 @@
 <template lang="pug">
 h1(style="padding:20px;text-align:center;") subapp {{$route.name}}
     .content
-        p Subapp Page MainStore Count: {{parentCount}}
-        p menu-1 page Count: {{count}}
+        p
+            span Parent Store Count:
+            span(style="color:red;font-weight:blod;") {{parentCount}}
+        p
+            span menu-1 page Count:
+            span(style="color:red;font-weight:blod;") {{count}}
         p
             button(@click="addParentCount") AddParentCount
         p

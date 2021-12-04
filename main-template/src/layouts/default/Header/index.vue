@@ -4,7 +4,8 @@ ElHeader(:class="getHeaderClass" height="48px")
         LayoutBreadcrumb
     div(:class="`${prefixCls}-action`")
         div(style="padding-right:20px;")
-            span Main Page Store Count: {{$store.state.count}}
+            span Parent Store Count:
+            span(style="color:red;font-weight:blod;") {{$store.state.count}}
             button(@click="addCount") AddCount
         UserDropDown
 </template>
