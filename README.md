@@ -20,6 +20,22 @@
 - [深入理解qiankun](#deepinQiankun)
 
 ## <span id="quickStart"> 快速上手</span>
+- [在线预览]() //TODO
+
+- 本地运行项目
+```
+$ git clone git@github.com:Aaronlamz/qiankun-admin-practice.git
+$ cd qiankun-admin-practice
+```
+```
+yarn install
+yarn demo:install
+yarn demo:start
+```
+本地访问 [`http://localhost:8081/admin/index.html#/index`](http://localhost:8081/admin/index.html#/index)
+效果图：
+![example.gif](./example.gif)
+
 ## <span id="1"> 入门指南</span>
 qiankun 是一个基于 single-spa 的微前端实现库，旨在帮助大家能更简单、无痛的构建一个生产可用微前端架构系统。
 ### <span id="1-1">什么是微前端</span>
