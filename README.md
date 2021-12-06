@@ -30,7 +30,7 @@ yarn install
 yarn demo:install
 yarn demo:start
 ```
-本地访问 [`http://localhost:8081/admin/index.html#/index`](http://localhost:8081/admin/index.html#/index)
+本地访问 [`http://localhost:8081/admin/index.html`](http://localhost:8081/admin/index.html)
 ![example.gif](./example.gif)
 
 ## <span id="1"> 入门指南</span>
