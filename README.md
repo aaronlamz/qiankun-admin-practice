@@ -33,7 +33,6 @@ yarn demo:install
 yarn demo:start
 ```
 本地访问 [`http://localhost:8081/admin/index.html#/index`](http://localhost:8081/admin/index.html#/index)
-效果图：
 ![example.gif](./example.gif)
 
 ## <span id="1"> 入门指南</span>
