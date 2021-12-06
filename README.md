@@ -20,8 +20,6 @@
 - [深入理解qiankun](#deepinQiankun)
 
 ## <span id="quickStart"> 快速上手</span>
-- [在线预览]() //TODO
-
 - 本地运行项目
 ```
 $ git clone git@github.com:Aaronlamz/qiankun-admin-practice.git
