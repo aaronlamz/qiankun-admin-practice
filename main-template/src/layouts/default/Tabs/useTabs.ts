@@ -10,3 +10,13 @@ export const getTitleByPath = (path: string) => {
     title = item.title || ''
     return title
 }
+
+export const getNameByPath = (path: string) => {
+    if (!path) return
+    let name = ''
+    const serviceRouteMap = LS.get('CACHED_SERVICE_ROUTE_MAP') || {}
+    const subappRouteMap = LS.get('CACHED_SUBAPP_ROUTE_MAP') || {}
+    const item = serviceRouteMap[path] || subappRouteMap[path] || {}
+    name = item.name || ''
+    return name
+}

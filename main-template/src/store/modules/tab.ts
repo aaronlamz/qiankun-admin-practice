@@ -1,5 +1,5 @@
 import { RouteLocationNormalized } from 'vue-router'
-import { getTitleByPath } from '@/layouts/default/Tabs/useTabs'
+import { getTitleByPath, getNameByPath } from '@/layouts/default/Tabs/useTabs'
 interface State {
     visitedTabs: Array<RouteLocationNormalized>
     cachedTabs: Array<any>
@@ -24,9 +24,10 @@ export default {
             )
         },
         commitAddCachedTab(state: State, route: RouteLocationNormalized) {
-            if (state.cachedTabs.includes(route.name)) return
+            const name = getNameByPath(route.path) || route.name
+            if (state.cachedTabs.includes(name)) return
             if (!route.meta.ignoreKeepAlive) {
-                state.cachedTabs.push(route.name)
+                state.cachedTabs.push(name)
             }
         },
         commitCloseVisitedTab(state: State, route: RouteLocationNormalized) {
