@@ -1,5 +1,5 @@
 import { RouteLocationNormalized } from 'vue-router'
-
+import { getTitleByPath } from '@/layouts/default/Tabs/useTabs'
 interface State {
     visitedTabs: Array<RouteLocationNormalized>
     cachedTabs: Array<any>
@@ -15,19 +15,13 @@ export default {
             if (state.visitedTabs.some((v) => v.path === route.path)) {
                 return
             }
+            const title = getTitleByPath(route.path)
+            route.meta.title = title || route.meta.title
             state.visitedTabs.push(
                 Object.assign({}, route, {
-                    title: route.meta.title,
+                    title: title,
                 })
             )
-        },
-        commitUpdateVisitedTab(state: State, route: RouteLocationNormalized) {
-            for (let v of state.visitedTabs) {
-                if (v.path === route.path) {
-                    v = Object.assign(v, route)
-                    break
-                }
-            }
         },
         commitAddCachedTab(state: State, route: RouteLocationNormalized) {
             if (state.cachedTabs.includes(route.name)) return
@@ -54,9 +48,6 @@ export default {
         },
     },
     actions: {
-        updateTabAction({ commit }: any, route: RouteLocationNormalized) {
-            commit('commitUpdateVisitedTab', route)
-        },
         addTabAction({ commit }: any, route: RouteLocationNormalized) {
             commit('commitAddVisitedTab', route)
             commit('commitAddCachedTab', route)
