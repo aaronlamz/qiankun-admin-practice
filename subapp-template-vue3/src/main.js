@@ -18,12 +18,9 @@ function render(props = {}) {
   });
   if (window.__POWERED_BY_QIANKUN__ && window[qiankunCachedKey]) {
     const cachedInstance = window[qiankunCachedKey];
-    debugger;
     const cachedNode =
-      (cachedInstance._instance && cachedInstance._instance.vnode) ||
-      cachedInstance._vnode;
+      cachedInstance._instance && cachedInstance._instance.vnode;
     // router.apps.push(...cachedInstance.$router.apps);
-    // cachedNode.data.keepAlive = true;
 
     instance = createApp({
       data() {
