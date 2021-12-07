@@ -1,26 +1,42 @@
-import { createRouter, createWebHashHistory } from "vue-router";
-import Home from "../views/Home.vue";
+import { projectName } from "@/config";
+let childRoutes = [];
+const files = require.context("./modules", true, /\.js$/);
+files.keys().forEach((key) => {
+  childRoutes = childRoutes.concat(files(key).default);
+});
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    redirect: `/${projectName}`,
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    name: "Home",
+    path: `/${projectName}`,
+    component: () => import("@/pages/home/index.vue"),
+    meta: {
+      title: "Home",
+    },
   },
+  ...childRoutes,
 ];
 
-const router = createRouter({
-  history: createWebHashHistory(),
-  routes,
-});
-
-export default router;
+const microAppPrefix = `/${projectName}`;
+const setRoutesMicroAppPrefix = (routes) => {
+  if (routes.length) {
+    routes.forEach((item) => {
+      if (
+        item.path &&
+        item.path.indexOf(microAppPrefix) === -1 &&
+        item.path !== "/"
+      ) {
+        item.path = `${microAppPrefix}${item.path}`;
+      }
+      if (item.children && item.children.length) {
+        setRoutesMicroAppPrefix(item.children);
+      }
+    });
+  }
+};
+setRoutesMicroAppPrefix(routes);
+export { routes };
