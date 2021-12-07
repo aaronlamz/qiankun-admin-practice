@@ -62,10 +62,22 @@ const store = createStore({
         getMenuList(state: State) {
             // you can format data depend on menuList data
             const servieRouteMap = {
-                '/subapp-template-vue2/menu-1': 'Vue2-MENU-1',
-                '/subapp-template-vue2/menu-2': 'Vue2-MENU-2',
-                '/subapp-template-vue3/menu-1': 'Vue3-MENU-1',
-                '/subapp-template-vue3/menu-2': 'Vue3-MENU-2',
+                '/subapp-template-vue2/menu-1': {
+                    name: 'menu-1',
+                    title: 'Vue2-MENU-1',
+                },
+                '/subapp-template-vue2/menu-2': {
+                    name: 'menu-2',
+                    title: 'Vue2-MENU-2',
+                },
+                '/subapp-template-vue3/menu-1': {
+                    name: 'menu-1',
+                    title: 'Vue3-MENU-1',
+                },
+                '/subapp-template-vue3/menu-2': {
+                    name: 'menu-2',
+                    title: 'Vue3-MENU-2',
+                },
             }
             LS.put('CACHED_SERVICE_ROUTE_MAP', servieRouteMap)
             return useFormatMenuList(state.menuList)

@@ -1,5 +1,6 @@
 import { registerMicroApps, initGlobalState, prefetchApps } from 'qiankun'
 import store from '@/store'
+import LS from '@/utils/localstorage'
 
 interface AppType {
     name: string
@@ -34,7 +35,23 @@ const initMicroState = () => {
         routes: [],
     })
     onGlobalStateChange((value: any) => {
-        console.log(value)
+        // cahced subapp route title and name
+        if (value && value.routes && value.routes.length) {
+            const subappRouteMap = LS.get('CACHED_SUBAPP_ROUTE_MAP') || {}
+            const subappRoutes = value.routes
+            subappRoutes.forEach((item) => {
+                if (item.name) {
+                    subappRouteMap[item.path] = {
+                        name: item.name,
+                        title: item.meta.title,
+                    }
+                } else {
+                    delete subappRouteMap[item.path]
+                }
+            })
+            LS.put('CACHED_SUBAPP_ROUTE_MAP', subappRouteMap)
+            console.log(LS.get('CACHED_SUBAPP_ROUTE_MAP'))
+        }
     })
     setGlobalState({
         routes: [],
