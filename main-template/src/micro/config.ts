@@ -25,6 +25,15 @@ const apps: Array<AppType> = [
             store,
         },
     },
+    {
+        name: 'subapp-template-vue3',
+        entry: '//localhost:8085/',
+        container: '#subapp-container',
+        activeRule: getActiveRule('#/subapp-template-vue3'),
+        props: {
+            store,
+        },
+    },
 ]
 
 const initMicroState = () => {
