@@ -20,6 +20,7 @@ function render(props = {}) {
     const cachedInstance = window[qiankunCachedKey];
     const cachedNode =
       cachedInstance._instance && cachedInstance._instance.vnode;
+    // cachedNode.type.__isKeepAlive = true;
     // router.apps.push(...cachedInstance.$router.apps);
 
     instance = createApp({
@@ -29,7 +30,7 @@ function render(props = {}) {
         };
       },
       render() {
-        return h(cachedNode);
+        return h(cachedNode, {});
       },
     });
     instance.use(router);
@@ -49,6 +50,7 @@ function render(props = {}) {
     instance.use(router);
     instance.use(store);
     instance.mount(container ? container.querySelector("#app") : "#app");
+    console.log("instance", instance);
   }
 }
 
@@ -74,5 +76,6 @@ export async function mount(props) {
 
 export async function unmount() {
   console.log("vue3 app unmount");
-  window[qiankunCachedKey] = instance.cachedInstance || instance;
+  window[qiankunCachedKey] = instance;
+  console.log("vue3 instance unmount", instance);
 }

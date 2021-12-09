@@ -17,10 +17,7 @@ function render(props = {}) {
     })
     if (window.__POWERED_BY_QIANKUN__ && window[qiankunCachedKey]) {
         const cachedInstance = window[qiankunCachedKey]
-        const cachedNode =
-            (cachedInstance.cachedInstance &&
-                cachedInstance.cachedInstance._vnode) ||
-            cachedInstance._vnode
+        const cachedNode = cachedInstance._vnode
         router.apps.push(...cachedInstance.$router.apps)
         cachedNode.data.keepAlive = true
 
@@ -34,8 +31,6 @@ function render(props = {}) {
             },
             render: () => cachedNode
         })
-
-        instance.cachedInstance = cachedInstance
 
         router.onReady(() => {
             const { path } = router.currentRoute
@@ -56,6 +51,7 @@ function render(props = {}) {
             },
             render: h => h(App)
         }).$mount(container ? container.querySelector('#app') : '#app')
+        console.log('vue2 instance', instance, instance._vnode.data.keepAlive)
     }
 }
 
@@ -81,5 +77,5 @@ export async function mount(props) {
 
 export async function unmount() {
     console.log('subapp unmount')
-    window[qiankunCachedKey] = instance.cachedInstance || instance
+    window[qiankunCachedKey] = instance
 }
