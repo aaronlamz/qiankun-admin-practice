@@ -25,7 +25,6 @@ import TabContent from './components/TabContent.vue'
 import { useNamespace } from '@/hooks/web/useNamespace'
 import { useGoPage } from '@/hooks/web/usePage'
 import store from '@/store/index'
-// import { getTabTitlebyPath } from './useTabs'
 
 export default defineComponent({
     name: 'MultipleTabs',
