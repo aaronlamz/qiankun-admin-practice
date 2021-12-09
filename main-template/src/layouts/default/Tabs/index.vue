@@ -18,14 +18,7 @@ div(:class="getWrapClass")
                 )
 </template>
 <script lang="ts">
-import {
-    defineComponent,
-    computed,
-    onMounted,
-    watchEffect,
-    ref,
-    unref,
-} from 'vue'
+import { defineComponent, computed, onMounted, watch, ref, unref } from 'vue'
 import { useRoute } from 'vue-router'
 import { ElTabs, ElTabPane, ElScrollbar } from 'element-plus'
 import TabContent from './components/TabContent.vue'
@@ -73,12 +66,15 @@ export default defineComponent({
             activeTabRef.value = route.path
         })
 
-        watchEffect(() => {
-            if (route.name && route.name !== 'Dashboard') {
-                store.dispatch('addTabAction', route)
+        watch(
+            () => route.path,
+            () => {
+                if (route.name && route.name !== 'Dashboard') {
+                    store.dispatch('addTabAction', route)
+                }
+                activeTabRef.value = route.path
             }
-            activeTabRef.value = route.path
-        })
+        )
 
         // click Tab callback
         function handleClickTab(tabItem: any) {

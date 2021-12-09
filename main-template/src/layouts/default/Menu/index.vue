@@ -19,7 +19,7 @@ ElScrollbar(
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, watchEffect, reactive, ref } from 'vue'
+import { defineComponent, computed, watch, reactive, ref } from 'vue'
 import { ElScrollbar } from 'element-plus'
 import { useNamespace } from '@/hooks/web/useNamespace'
 import { useGoPage } from '@/hooks/web/usePage'
@@ -53,14 +53,17 @@ export default defineComponent({
         }
 
         activeId.value = getId(menuList, route.path)
-        watchEffect(() => {
-            activeId.value = '1'
-            if (route.path === '/index') {
+        watch(
+            () => route.path,
+            () => {
                 activeId.value = '1'
-                return
+                if (route.path === '/index') {
+                    activeId.value = '1'
+                    return
+                }
+                activeId.value = getId(menuList, route.path)
             }
-            activeId.value = getId(menuList, route.path)
-        })
+        )
         return {
             openeds,
             activeId,
