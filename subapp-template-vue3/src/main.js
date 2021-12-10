@@ -59,7 +59,7 @@ if (!window.__POWERED_BY_QIANKUN__) {
 }
 
 export async function bootstrap() {
-  console.log("vue app bootstraped");
+  console.log("vue3 app bootstraped");
 }
 
 function setupState(props) {
@@ -75,7 +75,6 @@ export async function mount(props) {
 }
 
 export async function unmount() {
-  console.log("vue3 app unmount");
   window[qiankunCachedKey] = instance;
   console.log("vue3 instance unmount", instance);
 }
