@@ -35,6 +35,7 @@ function render(props = {}) {
     });
     instance.use(router);
     instance.use(store);
+    console.log("router", router);
     instance.mount(container ? container.querySelector("#app") : "#app");
   } else {
     instance = createApp({
