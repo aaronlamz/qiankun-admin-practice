@@ -18,12 +18,10 @@ function render(props = {}) {
   });
   if (window.__POWERED_BY_QIANKUN__ && window[qiankunCachedKey]) {
     const cachedInstance = window[qiankunCachedKey];
-    const cachedNode =
-      cachedInstance._instance && cachedInstance._instance.vnode;
+    const cachedVNode =
+      cachedInstance._container && cachedInstance._container._vnode;
 
-    // cachedNode.type.__isKeepAlive = true;
-    // router.apps.push(...cachedInstance.$router.apps);
-
+    cachedVNode.type.__isKeepAlive = true;
     instance = createApp({
       data() {
         return {
@@ -31,7 +29,7 @@ function render(props = {}) {
         };
       },
       render() {
-        return h(cachedNode);
+        return cachedVNode;
       },
     });
     instance.use(router);
@@ -54,19 +52,16 @@ function render(props = {}) {
   }
 }
 
-if (!window.__POWERED_BY_QIANKUN__) {
-  render();
-}
-
-export async function bootstrap() {
-  console.log("vue3 app bootstraped");
-}
-
 function setupState(props) {
   props.setGlobalState &&
     props.setGlobalState({
       routes,
     });
+}
+
+// lifeCycle muse be declared
+export async function bootstrap() {
+  console.log("vue3 app bootstraped");
 }
 
 export async function mount(props) {
@@ -77,4 +72,8 @@ export async function mount(props) {
 export async function unmount() {
   window[qiankunCachedKey] = instance;
   console.log("vue3 instance unmount", instance);
+}
+
+if (!window.__POWERED_BY_QIANKUN__) {
+  render();
 }
