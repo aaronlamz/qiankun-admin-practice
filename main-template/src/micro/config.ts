@@ -59,7 +59,6 @@ const initMicroState = () => {
                 }
             })
             LS.put('CACHED_SUBAPP_ROUTE_MAP', subappRouteMap)
-            console.log(LS.get('CACHED_SUBAPP_ROUTE_MAP'))
         }
     })
     setGlobalState({
