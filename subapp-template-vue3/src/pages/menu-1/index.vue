@@ -2,22 +2,22 @@
 h1(style="padding:20px;text-align:center;") subapp {{$route.name}}
     .content
         p
-            span Parent Store Count:
+            span Vue3 Parent Store Count:
             span(style="color:red;font-weight:blod;") {{parentCount}}
         p
-            span {{$route.name}} page Count:
-            span(style="color:red;font-weight:blod;") {{count}}
+            span Vue3 {{$route.name}} page Count:
+            span(style="color:red;font-weight:blod;") {{subcount}}
         p
             button(@click="addParentCount") AddParentCount
         p
-            button(@click="addCount") AddPageCount
+            button(@click="addSubCount") AddPageCount
 </template>
 <script>
 export default {
   components: {},
   data() {
     return {
-      count: 0,
+      subcount: 0,
     };
   },
   computed: {
@@ -26,12 +26,15 @@ export default {
     },
   },
   created() {},
+  activated() {
+    console.log("activated", this);
+  },
   methods: {
     addParentCount() {
       this.$root.mainStore.commit("increment");
     },
-    addCount() {
-      this.count++;
+    addSubCount() {
+      this.subcount++;
     },
   },
 };

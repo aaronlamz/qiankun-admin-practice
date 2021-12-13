@@ -2,10 +2,10 @@
 h1(style="padding:20px;text-align:center;") subapp {{$route.name}}
     .content
         p
-            span Parent Store Count:
+            span Vue3 Parent Store Count:
             span(style="color:red;font-weight:blod;") {{parentCount}}
         p
-            span {{$route.name}} page Count:
+            span Vue3 {{$route.name}} page Count:
             span(style="color:red;font-weight:blod;") {{count}}
         p
             button(@click="addParentCount") AddParentCount

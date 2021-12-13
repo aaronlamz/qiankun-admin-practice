@@ -16,12 +16,13 @@ function render(props = {}) {
     history: createWebHashHistory(),
     routes,
   });
+
   if (window.__POWERED_BY_QIANKUN__ && window[qiankunCachedKey]) {
     const cachedInstance = window[qiankunCachedKey];
     const cachedVNode =
-      cachedInstance._container && cachedInstance._container._vnode;
+      cachedInstance._instance && cachedInstance._instance.vnode;
+    // cachedVNode.type.__isKeepAlive = true;
 
-    cachedVNode.type.__isKeepAlive = true;
     instance = createApp({
       data() {
         return {
@@ -65,13 +66,14 @@ export async function bootstrap() {
 }
 
 export async function mount(props) {
+  console.log("vue3 app mount", instance);
   setupState(props);
   render(props);
 }
 
 export async function unmount() {
+  console.log("vue3 app unmount", instance);
   window[qiankunCachedKey] = instance;
-  console.log("vue3 instance unmount", instance);
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {

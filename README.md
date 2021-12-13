@@ -60,7 +60,7 @@ iframe 最大的特性就是提供了浏览器原生的硬隔离方案，不论�
 // TODO
 
 ## 参考链接
-- [官方文档](https://qiankun.umijs.org/zh/guide)
+- [qiankun文档](https://qiankun.umijs.org/zh/guide)
 - [single-spa文档](https://github.com/single-spa/single-spa)
 ## License
 [MIT](./LICENSE)

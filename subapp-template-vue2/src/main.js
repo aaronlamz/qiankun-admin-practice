@@ -51,7 +51,6 @@ function render(props = {}) {
             },
             render: h => h(App)
         }).$mount(container ? container.querySelector('#app') : '#app')
-        console.log('vue2 instance', instance, instance._vnode.data.keepAlive)
     }
 }
 
@@ -62,12 +61,8 @@ function setupState(props) {
         })
 }
 
-if (!window.__POWERED_BY_QIANKUN__) {
-    render()
-}
-
 export async function bootstrap() {
-    console.log('subapp bootstraped')
+    console.log('vue2 app bootstraped')
 }
 
 export async function mount(props) {
@@ -76,6 +71,10 @@ export async function mount(props) {
 }
 
 export async function unmount() {
-    console.log('subapp unmount')
+    console.log('vue2 app  unmount')
     window[qiankunCachedKey] = instance
+}
+
+if (!window.__POWERED_BY_QIANKUN__) {
+    render()
 }
