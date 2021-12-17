@@ -67,14 +67,14 @@ export async function bootstrap() {
 }
 
 export async function mount(props) {
-  console.log("vue3 app mount", instance);
+  console.log("vue3 app mount");
   setupState(props);
   render(props);
 }
 
 export async function unmount() {
-  console.log("vue3 app unmount", instance);
   window[qiankunCachedKey] = instance;
+  console.log("vue3 app unmount", instance);
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
