@@ -56,9 +56,6 @@ iframe 最大的特性就是提供了浏览器原生的硬隔离方案，不论�
 * 全局上下文完全隔离，内存变量不共享。iframe 内外系统的通信、数据同步等需求，主应用的 cookie 要透传到根域名都不同的子应用中实现免登效果。
 * 慢。每次子应用进入都是一次浏览器上下文重建、资源重新加载的过程。
 
-## <span id="deepinQiankun">深入理解qiankun</span>
-// TODO
-
 ## 参考链接
 - [qiankun文档](https://qiankun.umijs.org/zh/guide)
 - [single-spa文档](https://github.com/single-spa/single-spa)
