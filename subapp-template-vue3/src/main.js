@@ -73,7 +73,7 @@ export async function mount(props) {
 }
 
 export async function unmount() {
-  window[qiankunCachedKey] = instance;
+  // window[qiankunCachedKey] = instance;
   console.log("vue3 app unmount", instance);
 }
 

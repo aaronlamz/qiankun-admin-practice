@@ -22,13 +22,13 @@ export default {
     },
     computed: {
         parentCount() {
-            return this.$root.mainStore.state.count
+            return this.$root.mainStore && this.$root.mainStore.state.count
         }
     },
     created() {},
     methods: {
         addParentCount() {
-            this.$root.mainStore.commit('increment')
+            this.$root.mainStore && this.$root.mainStore.commit('increment')
         },
         addCount() {
             this.count++

@@ -8,18 +8,18 @@ interface AppType {
     container: string
     activeRule: any
     props: {
-        store: any
+        store?: any
     }
 }
 
 const getActiveRule = (hash: string) => (location: typeof window.location) =>
     location.hash.startsWith(hash)
 
-const apps: Array<AppType> = [
+export const apps: Array<AppType> = [
     {
         name: 'subapp-template-vue2',
         entry: '//localhost:8082/',
-        container: '#subapp-container',
+        container: '#subapp-vue2-container',
         activeRule: getActiveRule('#/subapp-template-vue2'),
         props: {
             store,
@@ -28,7 +28,7 @@ const apps: Array<AppType> = [
     {
         name: 'subapp-template-vue3',
         entry: '//localhost:8085/',
-        container: '#subapp-container',
+        container: '#subapp-vue3-container',
         activeRule: getActiveRule('#/subapp-template-vue3'),
         props: {
             store,

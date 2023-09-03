@@ -4,10 +4,8 @@ import { routes } from '@/router'
 import VueRouter from 'vue-router'
 import Vue from 'vue'
 import App from './App.vue'
-import { qiankunCachedKey } from '@/config'
 
 let router = null
-let instance = null
 
 function render(props = {}) {
     const data = props
@@ -15,43 +13,16 @@ function render(props = {}) {
     router = new VueRouter({
         routes
     })
-    if (window.__POWERED_BY_QIANKUN__ && window[qiankunCachedKey]) {
-        const cachedInstance = window[qiankunCachedKey]
-        const cachedNode = cachedInstance._vnode
-        router.apps.push(...cachedInstance.$router.apps)
-        cachedNode.data.keepAlive = true
-
-        instance = new Vue({
-            router,
-            store,
-            data() {
-                return {
-                    mainStore: data.store
-                }
-            },
-            render: () => cachedNode
-        })
-
-        router.onReady(() => {
-            const { path } = router.currentRoute
-            const { path: oldPath } = cachedInstance.$router.currentRoute
-            if (path !== oldPath) {
-                cachedInstance.$router.push(path)
+    new Vue({
+        router,
+        store,
+        data() {
+            return {
+                mainStore: data.store
             }
-        })
-        instance.$mount(container ? container.querySelector('#app') : '#app')
-    } else {
-        instance = new Vue({
-            router,
-            store,
-            data() {
-                return {
-                    mainStore: data.store
-                }
-            },
-            render: h => h(App)
-        }).$mount(container ? container.querySelector('#app') : '#app')
-    }
+        },
+        render: h => h(App)
+    }).$mount(container ? container.querySelector('#app') : '#app')
 }
 
 function setupState(props) {
@@ -70,9 +41,13 @@ export async function mount(props) {
     render(props)
 }
 
-export async function unmount() {
+export async function unmount(props) {
     console.log('vue2 app  unmount')
-    window[qiankunCachedKey] = instance
+    const { container } = props
+    const dom = document.querySelector(container)
+    if (dom) {
+        dom.style.display = 'none'
+    }
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
