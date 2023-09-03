@@ -1,5 +1,5 @@
 <template lang="pug">
-h1(style="padding:20px;text-align:center;") Home Page
+h1(style="padding:20px;text-align:center;") Vue3 Home Page
 </template>
 <script>
 export default {
