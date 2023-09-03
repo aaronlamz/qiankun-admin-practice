@@ -7,11 +7,6 @@
 ## 快速上手
 > node 版本 >= 14.0.0 <= 16.0.0
 ```
-$ git clone git@github.com:Aaronlamz/qiankun-admin-practice.git
-$ cd qiankun-admin-practice
-```
-
-```
 yarn demo:install
 yarn demo:start
 ```
