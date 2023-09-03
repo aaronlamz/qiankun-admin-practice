@@ -1,6 +1,4 @@
-# qiankun-admin-practice
-qiankun微前端｜后台管理系统实践指南
-
+# qiankun 微前端实践指南
 ## 快速上手
 > node 版本 >= 14.0.0 <= 16.0.0
 ```
@@ -15,7 +13,7 @@ yarn demo:start
 本地访问 [`http://localhost:8080/admin/index.html`](http://localhost:8080/admin/index.html)
 ![example.gif](./example.gif)
 
-## 实践指南
-- [https://www.ultimate-kernel.fun/open-course/qiankun/](https://www.ultimate-kernel.fun/open-course/qiankun/)
+## 参考
+- [qiankun 微前端实践指南](https://www.ultimate-kernel.fun/open-course/qiankun/)
 - [qiankun 官方文档](https://qiankun.umijs.org/zh/guide)
 - [single-spa 官方文档](https://github.com/single-spa/single-spa)
