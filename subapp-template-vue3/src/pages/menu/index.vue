@@ -1,5 +1,5 @@
 <template lang="pug">
-h1(style="padding:20px;text-align:center;") subapp {{$route.name}}
+h1(style="padding:20px;text-align:center;") subapp-vue3 {{$route.name}}
     .content
         p Subapp Page MainStore Count: {{parentCount}}
         p
