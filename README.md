@@ -15,8 +15,7 @@ yarn demo:start
 本地访问 [`http://localhost:8080/admin/index.html`](http://localhost:8080/admin/index.html)
 ![example.gif](./example.gif)
 
-
+## 实践指南
+- [https://www.ultimate-kernel.fun/open-course/qiankun/](https://www.ultimate-kernel.fun/open-course/qiankun/)
 - [qiankun 官方文档](https://qiankun.umijs.org/zh/guide)
 - [single-spa 官方文档](https://github.com/single-spa/single-spa)
-## License
-[MIT](./LICENSE)
