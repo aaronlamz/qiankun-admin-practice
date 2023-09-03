@@ -1,5 +1,5 @@
 <template lang="pug">
-h1(style="padding:20px;text-align:center;") subapp {{$route.name}}
+h1(style="padding:20px;text-align:center;") subapp-vue2 {{$route.name}}
     .content
         p
             span Parent Store Count:
