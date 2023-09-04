@@ -41,13 +41,10 @@ export async function mount(props) {
     render(props)
 }
 
-export async function unmount(props) {
-    console.log('vue2 app  unmount')
-    const { container } = props
-    const dom = document.querySelector(container)
-    if (dom) {
-        dom.style.display = 'none'
-    }
+export async function unmount() {
+    //hack unmount 默认会删除容器内的所/有内容，包括子应用渲染的内容，所以需要在子应用中重写 unmount 方法，阻止容器内的内容被删除
+    // 如果页签全部关闭，需要手动卸载子应用 TODO
+    throw new Error('unmount')
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
