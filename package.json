@@ -6,12 +6,12 @@
   "scripts": {
     "demo:install":"npm-run-all --serial install:*",
     "demo:start":"npm-run-all --parallel start:*",
-    "install:main":"cd main-template && yarn",
-    "install:vue2":"cd subapp-template-vue2 && yarn",
-    "install:vue3":"cd subapp-template-vue3 && yarn",
-    "start:main":"cd main-template && yarn serve",
-    "start:vue2":"cd subapp-template-vue2 && yarn serve",
-    "start:vue3":"cd subapp-template-vue3 && yarn serve",
+    "install:main":"cd vue-main && yarn",
+    "install:vue2":"cd vue2-subapp && yarn",
+    "install:vue3":"cd vue3-subapp && yarn",
+    "start:main":"cd vue-main && yarn serve",
+    "start:vue2":"cd vue2-subapp && yarn serve",
+    "start:vue3":"cd vue3-subapp && yarn serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
